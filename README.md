@@ -1,8 +1,8 @@
-# TIC-TAC-TOE in Hoon
+# Number Scrabble/Pick 15/3-to-15 in Urbit
 
-This is an homage to [urbit's](https://urbit.org/) tic-tac-toe [app](https://www.youtube.com/watch?v=_acTt4_IXYM&t=225s), based on the [example](https://github.com/joshuareagan/doc-drafts/blob/master/Hoon-Ch2-10.md) written by [Joshua Reagan](http://www.joshuareagan.com/) (aka ~taglux-nidsep)
+This is a Pick 15 game based on the [tic-tac-toe for urbit](https://github.com/yosoyubik/tic-tac-toe)
 
-![Alt Text](toe.low.gif)
+![Alt Text](pick15.png)
 
 ## Features
 
@@ -15,27 +15,21 @@ This is an homage to [urbit's](https://urbit.org/) tic-tac-toe [app](https://www
   - TODO: Research Gall/Hall to replace this
 - Pending requests to play are queued and pulled after current game finishes.
 - Styled text to print crosses and noughts on board, and game notifications
-## Network install
-There seems to be some issues syncing remote desks, follow the "local install" instructions if you encounter any problems
-
-    ~your-urbit:dojo> =toe-server ~habtev-micwyt-togryt-bisleb--fadsut-polryn-bontul-marzod
-    ~your-urbit:dojo> |sync %toe toe-server %toe
-    ~your-urbit:dojo> =dir  /=toe=
 
 ## Local install
 
 This might take some time to compile, seat tight!
 
-    cp toe/app/toe.hoon /path/to/your-urbit/home/app
-    cp -r toe/mar/toe /path/to/your-urbit/home/mar
-    cp toe/sur/toe.hoon /path/to/your-urbit/home/sur
-    cp toe/lib/cola.hoon /path/to/your-urbit/home/lib
+    cp app/pick15.hoon /path/to/your-urbit/home/app
+    cp -r mar/pick15 /path/to/your-urbit/home/mar
+    cp sur/pick15.hoon /path/to/your-urbit/home/sur
+    cp lib/cola.hoon /path/to/your-urbit/home/lib
 
 ## Start playing!!
 
 In your urbit's Dojo, run the command:
 
-    ~your-urbit:dojo> |start %toe
+    ~your-urbit:dojo> |start %pick15
 
 The list of commands are:
 
@@ -44,8 +38,8 @@ The list of commands are:
 - `'!'`: cancels the current game. (if any, unqueues next subscription)
 - `'l'`: list current subscriptions (any time during the game)
   - ![list|20%](subs.png)
-- `'1/1'`: board coordinates (`[1-3/1-3]`)
-  - Only if the prompt is `| ~zod:[X] <- ~dev:[O] |`
+- `'9-1/1'`: stone (`[1-9]`) and board coordinates (`[1-3/1-3]`)
+  - Only if the prompt is `| ~zod vs ~marzod | [number-row/col]`
 - `'Y'`: confirm/reject request to play `[Y/N]`
   - Only if the prompt is:
     - `| ~zod wins! continue? (Y/N) |`
